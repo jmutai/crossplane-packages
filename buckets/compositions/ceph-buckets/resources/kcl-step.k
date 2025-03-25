@@ -37,7 +37,7 @@ _cephObject= {
         }
       }
     }
-    managementPolicies = ["Observe"]
+    managementPolicies = spec.managementPolicies
     providerConfigRef = {
       name = spec.providerConfigsRef.scK8sProviderName
     }
