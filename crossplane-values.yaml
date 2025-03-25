@@ -1,0 +1,7 @@
+# -- The number of Crossplane pod `replicas` to deploy.
+replicas: 1
+
+# -- Add custom arguments to the Crossplane pod.
+args:
+  - --enable-usages
+  - --debug
