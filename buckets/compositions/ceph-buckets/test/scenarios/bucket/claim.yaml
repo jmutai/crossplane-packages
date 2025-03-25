@@ -1,5 +1,5 @@
 apiVersion: infitx.org/v1alpha1
-kind: CephBucket
+kind: XCephBucket
 metadata:
   name: my-example-bucket
 spec:
