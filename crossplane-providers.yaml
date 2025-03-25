@@ -11,7 +11,7 @@ kind: Provider
 metadata:
   name: provider-terraform
 spec:
-  package: xpkg.upbound.io/upbound/provider-terraform:v0.19.4
+  package: xpkg.upbound.io/upbound/provider-terraform:v0.20.0 # https://github.com/upbound/provider-terraform/releases
   controllerConfigRef:
     name: debug-config
 ---
@@ -20,7 +20,7 @@ kind: Provider
 metadata:
   name: provider-kubernetes
 spec:
-  package: xpkg.upbound.io/upbound/provider-kubernetes:v0.16.3
+  package: xpkg.upbound.io/upbound/provider-kubernetes:v0.17.1 #https://github.com/crossplane-contrib/provider-kubernetes/releases
   runtimeConfigRef:
     apiVersion: pkg.crossplane.io/v1beta1
     kind: DeploymentRuntimeConfig
@@ -40,7 +40,7 @@ kind: Provider
 metadata:
   name: provider-ansible
 spec:
-  package: xpkg.upbound.io/crossplane-contrib/provider-ansible:v0.6.0
+  package: xpkg.upbound.io/crossplane-contrib/provider-ansible:v0.6.0 #https://github.com/crossplane-contrib/provider-ansible/releases
   controllerConfigRef:
     name: debug-config
   runtimeConfigRef:
@@ -84,7 +84,7 @@ kind: Provider
 metadata:
   name: provider-vault
 spec:
-  package: xpkg.upbound.io/upbound/provider-vault:v2.1.1
+  package: xpkg.upbound.io/upbound/provider-vault:v2.1.1 #https://github.com/upbound/provider-vault
   controllerConfigRef:
     name: debug-config
 ---
@@ -93,7 +93,7 @@ kind: Function
 metadata:
   name: function-patch-and-transform
 spec:
-  package: xpkg.upbound.io/crossplane-contrib/function-patch-and-transform:v0.8.1
+  package: xpkg.upbound.io/crossplane-contrib/function-patch-and-transform:v0.8.2 #https://github.com/crossplane-contrib/function-patch-and-transform/releases
 
 ---
 apiVersion: pkg.crossplane.io/v1beta1
@@ -101,4 +101,4 @@ kind: Function
 metadata:
   name: kcl-function
 spec:
-  package: xpkg.upbound.io/crossplane-contrib/function-kcl:latest
+  package: xpkg.upbound.io/crossplane-contrib/function-kcl:v0.11.2 #https://github.com/crossplane-contrib/function-kcl/releases

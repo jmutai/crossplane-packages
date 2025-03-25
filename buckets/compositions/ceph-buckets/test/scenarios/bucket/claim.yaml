@@ -1,0 +1,18 @@
+apiVersion: infitx.org/v1alpha1
+kind: CephBucket
+metadata:
+  name: my-example-bucket
+spec:
+  providerConfigsRef:
+    scK8sProviderName: sc-kubernetes-provider
+    ccK8sProviderName: kubernetes-provider
+  managementPolicies:
+    - "*"
+  parameters:
+    bucketName: "my-example-bucket"
+    storageClassName: "ceph-bucket"
+    maxSize: "20Gi"
+    maxObjects: "5000"
+    source_secret:
+      namespace: "rook-ceph"
+      name: "my-example-bucket"
