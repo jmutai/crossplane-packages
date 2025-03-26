@@ -9,11 +9,11 @@ parameters: any = spec.parameters
 _items: [any] = []
 
 ## Adding resources
-_cephObject= {
+_cephBucket= {
   apiVersion = "kubernetes.crossplane.io/v1alpha2"
   kind = "Object"
   metadata = {
-    name = "{}-ss".format(oxr.metadata.name)
+    name = "{}-bucket".format(oxr.metadata.name)
     annotations = {
       "krm.kcl.dev/composition-resource-name": "ceph-bucket"
     }
@@ -28,9 +28,9 @@ _cephObject= {
           namespace = parameters.secret.source_namespace
         }
         spec = {
-          bucketName       = parameters.bucketName
-          storageClassName = parameters.storageClassName
-          additionalConfig = {
+          bucketName         = parameters.bucketName
+          storageClassName   = parameters.storageClassName
+          additionalConfig   = {
             maxSize    = parameters.maxSize
             maxObjects = parameters.maxObjects
           }
@@ -43,6 +43,7 @@ _cephObject= {
     }
   }
 }
+
 _sourceSecret = {
   apiVersion = "kubernetes.crossplane.io/v1alpha2"
   kind = "Object"
@@ -120,7 +121,7 @@ _pushSecret = {
         }
         spec = {
           updatePolicy = "Replace"
-          deletionPolicy = "None"
+          deletionPolicy = "Delete"
           refreshInterval = "1h"
           secretStoreRefs = [
             {
@@ -163,7 +164,7 @@ _pushSecret = {
   }
 }
 
-_items += [_cephObject,_sourceSecret,_destinationSecret,_pushSecret]
+_items += [_cephBucket,_sourceSecret,_destinationSecret,_pushSecret]
 
 dxr = {
     **oxr
