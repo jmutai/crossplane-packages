@@ -75,15 +75,16 @@ spec:
                     type: string
                     description: Maximum number of objects in the bucket
                     default: "1000"
-                  source_secret:
+                  secret:
                     type: object
                     description: |-
-                      The source secret to sync.
+                      Secrets params for sync.
                     required:
-                      - namespace
                       - name
+                      - source_namespace
+                      - destination_namespace
                     properties:
-                      namespace:
+                      source_namespace:
                         type: string
                         description: |-
                           Namespace of the secret to sync from source cluster.
@@ -91,19 +92,7 @@ spec:
                         type: string
                         description: |-
                           Name of the secret to sync from source cluster.
-                  destination_secret:
-                    type: object
-                    description: |-
-                      The destination secret to sync to.
-                    required:
-                      - namespace
-                      - name
-                    properties:
-                      namespace:
+                      destination_namespace:
                         type: string
                         description: |-
-                          Namespace of the secret to sync to destination cluster.
-                      name:
-                        type: string
-                        description: |-
-                          Name of the secret to sync to destination cluster.
+                          Namespace of the namespace on destination cluster.
