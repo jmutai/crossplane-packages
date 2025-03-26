@@ -170,5 +170,3 @@ dxr = {
 }
 
 items = _items + [dxr]
-
-# token: "hvs.5iW7Mw4FEk3P4BkZ93mAehnt"
